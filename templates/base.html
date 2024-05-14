@@ -1,0 +1,39 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Base.html</title>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    </head>
+    <body>
+        <h1>
+            <a href="{% url 'news' %}">Blog sayti</a>
+        </h1>
+
+        {% if user.is_authenticated %}
+            <p>Xush kelibsiz {{user.username}}</p>
+            <a href="{% url 'logout' %}">Chiqish</a>
+        {% else %}
+            <a href="{% url 'login' %}">Kirish</a> &nbsp;&nbsp;&nbsp;
+            <a href="{% url 'signup' %}">Ro‘yhatdan o‘tish</a>
+        {% endif %}
+
+        {% block content %} {% endblock content %}
+
+        <div>
+            <h2>
+                <a
+                    style="
+                        text-decoration: none;
+                        background: blue;
+                        border-radius: 5px;
+                        padding: 5px 10px;
+                        color: white;
+                    "
+                    href="{% url 'newpost' %}"
+                    >Yangilik qo‘shish</a
+                >
+            </h2>
+        </div>
+    </body>
+</html>

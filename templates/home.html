@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Uy sahifasi</title>
+    </head>
+    <body>
+        <p>
+            <a href="{% url 'home' %}">Uy sahifasi</a><br>
+            <a href="{% url 'about' %}">About sahifasi</a>
+        </p>
+
+        {% block content %}
+        <h1>Uy sahifasi</h1>
+        {% endblock content %}
+    </body>
+</html>
